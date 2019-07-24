@@ -1,0 +1,22 @@
+.sign-in {
+  p {
+    font-size: 18px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // width: 100%;
+    margin-top: 20px;
+
+    button {
+      width: 45%;
+      margin-right: 24px;
+    }
+  }
+
+  form {
+    margin-top: 48px;
+  }
+}
