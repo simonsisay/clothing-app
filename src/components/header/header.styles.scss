@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  width: 100%;
+  align-items: center;
+  margin: auto;
+
+  .logo-container {
+    padding: 12px 24px;
+  }
+
+  .options {
+    padding: 12px 24px;
+    display: flex;
+    width: 50%;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .option {
+    padding: 10px 15px;
+    font-size: 18px;
+  }
+}
