@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 import "./sign-up.styles.scss";
+import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 
 class SignUp extends Component {
   constructor(props) {
@@ -14,12 +15,32 @@ class SignUp extends Component {
     };
   }
 
-  submitForm = e => {
+  submitForm = async e => {
     e.preventDefault();
+    const { displayName, email, password, confirmPassword } = this.state;
+
+    console.log(this.state);
+    if (password !== confirmPassword) {
+      alert("Password don't match");
+      return;
+    }
+    try {
+      const data = await auth.createUserWithEmailAndPassword(email, password);
+      createUserProfileDocument(data.user, { displayName });
+      this.setState({
+        displayName: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   };
 
   render() {
