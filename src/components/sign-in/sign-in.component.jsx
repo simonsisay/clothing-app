@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import FormInput from "../form-input/form-input.component";
-import FormButton from "../form-button/form-button.component";
+import CustomButton from "../custom-button/custom-button.component";
 import "./sign-in.styles.scss";
+import { signInWithGoogle } from "../../firebase/firebase.utils";
 
 class SignIn extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class SignIn extends Component {
 
   submitForm = e => {
     e.preventDefault();
+    signInWithGoogle();
   };
 
   handleChange = e => {
@@ -35,17 +37,18 @@ class SignIn extends Component {
           />
           <FormInput
             name="password"
+            type="password"
             value={this.state.password}
             onChange={this.handleChange}
             label={"Password"}
           />
           <span className="button-container">
-            <FormButton onClick={this.submitForm} backgroundColor={"#000"}>
+            <CustomButton onClick={this.submitForm} backgroundColor={"#000"}>
               SIGN IN
-            </FormButton>
-            <FormButton onClick={this.submitForm} backgroundColor={"#006edd"}>
+            </CustomButton>
+            <CustomButton onClick={this.submitForm} backgroundColor={"#006edd"}>
               SIGN IN WITH GOOGLE
-            </FormButton>
+            </CustomButton>
           </span>
         </form>
       </div>

@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
   text-align: center;
   flex: 1 1 auto;
   margin: 8px 15px;
@@ -41,7 +40,6 @@
   .content {
     height: 90px;
     padding: 0 25px;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;

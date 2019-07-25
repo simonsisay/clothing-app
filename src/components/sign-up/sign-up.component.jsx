@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FormInput from "../form-input/form-input.component";
-import FormButton from "../form-button/form-button.component";
+import CustomButton from "../custom-button/custom-button.component";
 import "./sign-up.styles.scss";
 
 class SignUp extends Component {
@@ -31,32 +31,40 @@ class SignUp extends Component {
         <form className="form">
           <FormInput
             name="displayName"
+            type="text"
             value={this.state.displayName}
             onChange={this.handleChange}
             label={"Display Name"}
           />
           <FormInput
             name="email"
+            type="text"
             value={this.state.email}
             onChange={this.handleChange}
             label={"Email"}
           />
           <FormInput
             name="password"
+            type="password"
             value={this.state.password}
             onChange={this.handleChange}
             label={"Password"}
           />
           <FormInput
             name="confirmPassword"
-            value={this.state.password}
+            type="password"
+            value={this.state.confirmPassword}
             onChange={this.handleChange}
             label={"Confirm Password"}
           />
           <span className="button-container">
-            <FormButton onClick={this.submitForm} backgroundColor={"#000"}>
+            <CustomButton
+              type={"submit"}
+              onClick={this.submitForm}
+              backgroundColor={"#000"}
+            >
               SIGN UP
-            </FormButton>
+            </CustomButton>
           </span>
         </form>
       </div>

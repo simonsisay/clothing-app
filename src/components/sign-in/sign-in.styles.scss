@@ -5,14 +5,14 @@
 
   .button-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    // width: 100%;
+    width: 100%;
     margin-top: 20px;
+    box-sizing: border-box;
 
     button {
-      width: 45%;
-      margin-right: 24px;
+      width: 48%;
     }
   }
 
