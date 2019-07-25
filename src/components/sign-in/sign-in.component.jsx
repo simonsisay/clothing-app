@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 import "./sign-in.styles.scss";
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import {
+  signInWithGoogle,
+  createUserProfileDocument
+} from "../../firebase/firebase.utils";
+import { auth } from "../../firebase/firebase.utils";
+import { withRouter } from "react-router-dom";
 
 class SignIn extends Component {
   constructor(props) {
@@ -13,9 +18,26 @@ class SignIn extends Component {
     };
   }
 
-  submitForm = e => {
+  submitForm = async e => {
     e.preventDefault();
-    signInWithGoogle();
+    const { email, password } = this.state;
+
+    if (!email || !password) {
+      alert("Please make sure you added email and password");
+      return;
+    }
+
+    try {
+      const data = await auth.signInWithEmailAndPassword(email, password);
+      createUserProfileDocument(data.user);
+      this.setState({
+        email: "",
+        password: ""
+      });
+      this.props.history.push("/shop");
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   handleChange = e => {
@@ -46,7 +68,10 @@ class SignIn extends Component {
             <CustomButton onClick={this.submitForm} backgroundColor={"#000"}>
               SIGN IN
             </CustomButton>
-            <CustomButton onClick={this.submitForm} backgroundColor={"#006edd"}>
+            <CustomButton
+              onClick={() => signInWithGoogle()}
+              backgroundColor={"#006edd"}
+            >
               SIGN IN WITH GOOGLE
             </CustomButton>
           </span>
@@ -56,4 +81,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);
