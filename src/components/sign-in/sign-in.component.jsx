@@ -49,7 +49,7 @@ class SignIn extends Component {
         <h2>I already have an account</h2>
         <p>Sign in with your email and password</p>
 
-        <form className="form">
+        <div className="form">
           <FormInput
             name="email"
             value={this.state.email}
@@ -74,7 +74,7 @@ class SignIn extends Component {
               SIGN IN WITH GOOGLE
             </CustomButton>
           </span>
-        </form>
+        </div>
       </div>
     );
   }
