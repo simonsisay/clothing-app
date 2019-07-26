@@ -1,8 +1,16 @@
 .custom-button {
   width: 200px;
   text-transform: uppercase;
-  color: white;
+  color: #000;
   height: 50px;
   border: none;
   cursor: pointer;
+  border: 1px solid #000;
+  background: #fff;
+  transition: all 1s;
+
+  &:hover {
+    background-color: #000;
+    color: white;
+  }
 }

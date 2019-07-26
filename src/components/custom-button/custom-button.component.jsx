@@ -6,7 +6,7 @@ const CustomButton = ({ onClick, children, backgroundColor }) => {
     <button
       className="custom-button"
       onClick={onClick}
-      style={{ backgroundColor: backgroundColor ? backgroundColor : "#000" }}
+      style={{ backgroundColor: backgroundColor ? backgroundColor : undefined }}
     >
       {children}
     </button>
