@@ -1,0 +1,17 @@
+.category-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  h2 {
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
