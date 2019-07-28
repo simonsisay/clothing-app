@@ -5,8 +5,9 @@ import "./cart-dropdown.styles.scss";
 import { selectCartItems } from "../../redux/cart/cart-selector";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { toggleCart } from "../../redux/cart/cart-actions";
 
-const CartDropDown = ({ cartItems, history }) => {
+const CartDropDown = ({ cartItems, history, dispatch }) => {
   return (
     <div className="cart-dropdown">
       <div className="cart-items">
@@ -14,7 +15,12 @@ const CartDropDown = ({ cartItems, history }) => {
           <CartItem item={item} />
         ))}
       </div>
-      <CustomButton onClick={() => history.push("checkout")}>
+      <CustomButton
+        onClick={() => {
+          dispatch(toggleCart());
+          history.push("checkout");
+        }}
+      >
         GO TO CHECKOUT
       </CustomButton>
     </div>

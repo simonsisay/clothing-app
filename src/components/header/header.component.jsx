@@ -35,7 +35,7 @@ const Header = ({ currentUser, cartHidden }) => {
           </Link>
         )}
         <CartIcon />
-        {!cartHidden && <CartDropdown />}
+        {Boolean(!cartHidden) && <CartDropdown />}
       </div>
     </div>
   );
