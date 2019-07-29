@@ -17,7 +17,7 @@ const StripeCheckoutButton = ({ price }) => {
       billingAddress
       shippingAddress
       image="https://http://svgshare.com/i/Cuz.svg"
-      description={`Your total is $${price}`}
+      description={`Your total is $${priceForStripe}`}
       panelLabel="Pay Now"
       token={onToken}
       stripeKey={publishableKey}
